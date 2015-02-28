@@ -1,0 +1,24 @@
+1. What happens when you initialize a repository? Why do you need to do it?
+
+It creates the git repository in your current working directory. You need to create the repository in order to track files with git by creating the metadata (the .git directory). If you clone a repository, this .git directory is copied as part of the clone.
+
+Commands: git init, git status, git add <filename>
+
+2. How is the staging area different from the working directory and the repository?
+What value do you think it offers?
+
+The staging area contains files that you have added from your working directory. The files in the staging area are not yet committed, so are not being tracked by git. This allows you to review your adds before doing a commit, which puts the file under the version control of git.
+
+3. How can you use the staging area to make sure you have one commit per logical
+change?
+
+What are some situations when branches would be helpful in keeping your history
+organized? How would branches help?
+
+How do the diagrams help you visualize the branch structure?
+
+What is the result of merging two branches together? Why do we represent it in
+the diagram the way we do?
+
+What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
+manually?

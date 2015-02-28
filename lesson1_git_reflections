@@ -1,0 +1,31 @@
+git and github reflections
+==========================
+
+1. It is much easier and quicker to compare code files via diff than to do a manual visual compare
+
+2. How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+You can easily role back to a previous state of do a diff to see changes.
+
+3. How often should you commit changes to Git? Each commmit should be one logical change or set of changes to the same area of code, so that it can be easier to compare (diff), troubleshoot and/or rollback. Manually committing makes you think about the logical commit points, as opposed to auto saves in drop box and google drive.
+
+4. Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+
+Because the files for a project may be dependent on each other, they can be saved together in one commit and represent a build. Google docs are standalone files, so don't need multiple files in a commit.
+
+5. To clone a repository, run git clone followed by a space and the repository URL.
+
+6. Exiting git log: To stop viewing git log output, press q (which stands for quit).
+
+7. Getting Colored Output: To get colored diff output, run git config --global color.ui auto
+
+8. How can you use the commands git log and git diff to view the history of files?
+
+   Use git log to list the revisions, then use git diff to compare two versions
+
+9. How might using version control make you more confident to make changes that could break something?
+
+You know that you can always roll back to a previous version ... if the recent commit breaks something, you can go back and review the changes to find the bug.
+
+10. Now that you have your workspace set up, what do you want to try using Git for?
+To save versions of my nanodegree projects.
