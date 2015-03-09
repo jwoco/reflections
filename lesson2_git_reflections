@@ -2,7 +2,35 @@
 
 It creates the git repository in your current working directory. You need to create the repository in order to track files with git by creating the metadata (the .git directory). If you clone a repository, this .git directory is copied as part of the clone.
 
-Commands: git init, git status, git add <filename>
+Commands:
+
+git init : create a new repository in the current working directory
+
+git status : to show the status of working dir, staging area, and commits
+
+git checkout <commit id> : to checkout the specific commit version of the file
+
+git add <filename> : to add file to staging area (to update what will be committed)
+
+git checkout --<file>  : to discard changes in the working directory
+
+git diff : to compare working dir and staging area
+
+git diff --staged : to compare staging area to repository
+
+git checkout master : to restore most recent commit from 'detached head' state
+
+git branch : to show all branches in repository (currently active branch marked with asterisk)
+
+git branch <branch-name> : to create new branch
+
+git checkout branch <branch-name> : to make the branch the currently active branch
+
+git log --graph --oneline <branch-name> <branch-name>  : show graph on oneline of commits assigned to branches
+
+git checkout branch <branch-name> : to create new branch and make it the active branch
+
+Note: need to use a package manager (homebrew?) to install Git. It appears to be installed as part of the Xcode tools (older git version). Also, have not been able to get sublime to open (for comments) when doing a git commit
 
 2. How is the staging area different from the working directory and the repository?
 What value do you think it offers?
@@ -12,13 +40,23 @@ The staging area contains files that you have added from your working directory.
 3. How can you use the staging area to make sure you have one commit per logical
 change?
 
-What are some situations when branches would be helpful in keeping your history
+You can use 'git diff' to compare the working dir and the staging area; and also 'git diff --staged' to compare the staging area with the most recent commit. If there is one logical commit in the staging area, then doing a commit will work.
+
+4. What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
-How do the diagrams help you visualize the branch structure?
+When you have a new feature that may or may not be added to the program, or you have a lnguage variant. A branch can let you continue developing and testing a potential feature or change without affecting the master branch ... it isolates tha change from the main program.
 
-What is the result of merging two branches together? Why do we represent it in
+5. How do the diagrams help you visualize the branch structure?
+
+The diagrams and the log with --graph show the linear porgression of commits on a branch and where a branch comes off the master.
+
+6. What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
-What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
+The commits from one branch are added to the commits in the main branch. The graph shows that the changes are part of the same branch and subsequent commits extend the master branch.
+
+7. What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+
+Manual merges make sure that you resolve conflicts, possibly from multiple coders making changes to the same area of code, before committing a file and overwriting someone else's changes.
