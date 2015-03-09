@@ -1,0 +1,7 @@
+Lesson 3 Git Reflections: using GitHub
+======================================
+
+When would you want to use a remote repository rather than keeping all your work local?
+
+To make it available to remote users, or to clone a remote repository for changes.
+
