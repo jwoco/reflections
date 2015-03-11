@@ -1,7 +1,70 @@
 Lesson 3 Git Reflections: using GitHub
 ======================================
 
-When would you want to use a remote repository rather than keeping all your work local?
+1. When would you want to use a remote repository rather than keeping all your work local?
 
 To make it available to remote users, or to clone a remote repository for changes.
 
+2. Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+
+You may be working on changes in a file that was updated on GitHub and are not ready to merge.
+
+Commands:
+
+clone a GitHub reposirtory to a local directory: git clone <GitHub clone url> <local directory)
+
+git remote : shows any remotes connected to the repository
+git remote origin <url> : add remote to GitHub repository
+git remote -v : shows remotes with verbose mode
+git push  <GitHub-url> <local-branch>  : sync local with GitHub (copy any commits in local to GitHub repository) (updates origin/branch on GitHub) (ex: git push origin master)
+git pull origin master  : sync GitHub repository with local (copy any commits in GitHib to local repository) (updates origin/branch on local)
+
+Updating local copies of remote branches:
+
+   git fetch : updates only the local origin/master branch with the latest commit from GitHub (assuming there is a more recent commit on GitHub)
+   git pull origin master = git fetch origin; get merge master origin/master
+
+ Example: Creating a local change on new branch and using a pull request on GitHub to review before merging with GitHub fork ...
+   1. create branch: git branch different-oil
+   2. checkout the branch: git checkout different-oil
+   3. modify the file : edit cake-recipe.txt
+   4. add the file to the staging area: git add cake-recipe.txt
+   5. commit file to the local repository: git commit
+   6. push the new branch in the local repository to remote (GitHub) : git push origin different-oil
+   7. use pull-request on GitHub to get review of your changes and thne merge
+
+ Keeping a fork up-to-date with changes in the GitHub master:
+   (note: cannot fix merge conflicts on the GitHub fork; must fix them locally, then push)
+   (note: To get changes to master, you need to add a remote to your local repository. You already have a remote called origin that points to your Fork on GitHub. Now need to add a remote that points to the GitHub master.)
+ 1. git remote add upstream <url of GitHub master from clone master field>
+ 2. git checkout master
+ 3. git pull upstream master
+ 4. git checkout <change-branch>
+ 5. Merge master branch into the "change" branch : git merge master <chnage-branch>
+ 6. Make edits to fix merge conflicts.
+ 7. git add <changed-file>
+ 8. git commit
+ 9. Push the "change" branch and the master branch to the fork on GitHub : git push origin <change-branch>
+    (note: you don't have permission to push a change to the master ("upstream" remote))
+ 10. git checkout master
+ 11 . git push
+
+
+
+3. Describe the differences between forks, clones, and branches. When would you use one instead of another?
+
+A branch isolates changes from the main code (master), so you can test and experiment before deciding to merge the branch into the main code. A clone is a local copy of a repository (from either another local repository or a repository on GitHub) ... a clone of a GitHub repository is not connected to the original repository ?? A fork is a clone of a GitHub repository that stays on GitHub with changes tracked on GitHub.
+
+4. What is the benefit of having a copy of the last known state of the remote stored locally?
+
+You can work offline on the repository and push any changes back to the remote when you are back online.
+
+You can avoid file change conflicts with other contributors.
+
+5. How would you collaborate without using Git or GitHub? What would be easier, and what would be harder?
+
+When multiple individuals worked on a repository, they could work in separate branches, then use git diff to compare commits before merging a branch. There would need to be more communication in person, email, or some other method to coordinate changes and more logistics for each person to view changes.
+
+6. When would you want to make changes in a separate branch rather than directly in master? What benefits does each approach have?
+
+When you have multiple contributors working on a repository, and/or, you are adding new features that may not be included in the main code, or you want to test the code first, it makes sense to use a branch.
